@@ -1,0 +1,28 @@
+// https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/
+
+class Solution {
+public:
+    bool findTargetIn2DPlants(vector<vector<int>>& plants, int target) {
+        if (plants.size() == 0) {
+            return false;
+        }
+        int n = plants.size(), m = plants[0].size(), i = 0, j = m - 1;
+        while (i < n && j >= 0) {
+            if (plants[i][j] < target) {
+                i++;
+            } else if (plants[i][j] > target) {
+                j--;
+            } else if (plants[i][j] == target) {
+                return true;
+            }
+        }
+        // for (int i=0;i<plants.size();i++) {
+        //     for (int j=0;j<plants[0].size();j++) {
+        //         if (plants[i][j] == target) {
+        //             return true;
+        //         }
+        //     }
+        // }
+        return false;
+    }
+};
